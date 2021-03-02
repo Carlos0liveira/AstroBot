@@ -1,0 +1,21 @@
+{
+  "name": "survibo",
+  "version": "1.0.0",
+  "description": "Um bot para o Survidor",
+  "main": "bot.js",
+  "scripts": {
+    "test": "{\"test\";\"echo \"Error: no test specified\" && exit 1\"},"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\"Boomo\""
+  },
+  "keywords": [
+    "\"ISC\""
+  ],
+  "author": "Prodd",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
