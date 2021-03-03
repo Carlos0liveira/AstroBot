@@ -4,7 +4,7 @@ const cfg = require("./config.json");
 
 bot.on('ready', () => {
     console.log(`Bot Online e operante`)
-    bot.user.setActivity(`Sou o Bot do Surv digite !ajuda para ver meus comandos`)
+    bot.user.setActivity(`Prazer me chamo Astro digite !ajuda para ver meus comandos`);
     }
 );
 
