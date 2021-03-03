@@ -1,7 +1,7 @@
 const { Client } = require('discord.js'); 
 const bot = new Client();
 const cfg = require("./config.json");
-const saudacao = require('./src/comands/saudação');
+const saudacao = require('./src/comands/saudacao');
 const ajuda = require('./src/comands/ajuda')
 const joinServer = require('./src/joinServer')
 
