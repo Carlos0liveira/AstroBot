@@ -22,5 +22,4 @@ bot.on("guildMemberAdd", async member => {
     joinServer(member);
 })
 
-
 bot.login(cfg.token)
