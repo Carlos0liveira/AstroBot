@@ -10,12 +10,9 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.author.bot) return;
-    if (message.channel.type === "dm") return; 
-        
-    const arg = message.content.slice(cfg.prefix.length).trim().split(/ +/g);
-    const command = arg.shift().toLowerCase();
+    if (message.channel.type === "dm") return;
 
-    if (command === 'oi') {
+    if (message.content === '!oi') {
         const embed = new MessageEmbed()
             .setTitle('Olá!!')
             .setColor(0000000)
@@ -23,7 +20,7 @@ bot.on('message', message => {
             .addField('Sou o bot do Survidor','Eu ainda estou em desenvolvimento, mas em breve vou poder entreter vocês!')
             .setFooter('Imagens do Prodd neste momento'); 
             message.channel.send(embed);
-            message.delete({timeout: 1000});  
+            message.delete({timeout: 500});  
         }   
     }            
 );
