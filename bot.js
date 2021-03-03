@@ -3,6 +3,7 @@ const bot = new Client();
 const cfg = require("./config.json");
 const saudacao = require('./src/comands/saudação');
 const ajuda = require('./src/comands/ajuda')
+const joinServer = require('./src/joinServer')
 
 bot.on('ready', () => {
     console.log(`Bot Online e operante`)
@@ -16,5 +17,10 @@ bot.on('message', (message) => {
     saudacao(message);
     ajuda(message);
 });
+
+bot.on("guildMemberAdd", async member => {
+    joinServer(member);
+})
+
 
 bot.login(cfg.token)
