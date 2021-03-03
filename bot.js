@@ -8,14 +8,14 @@ bot.on('ready', () => {
     }
 );
 
-bot.on('message', message => {
+/*bot.on('message', message => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;
 
     if (message.content === '!oi') {
         const embed = new MessageEmbed()
             .setTitle('Olá!!')
-            .setColor(0000000)
+            .setColor([45,25,52])
             .setImage('https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif')
             .addField('Sou o bot do Survidor','Eu ainda estou em desenvolvimento, mas em breve vou poder entreter vocês!')
             .setFooter('Imagens do Prodd neste momento'); 
@@ -23,6 +23,6 @@ bot.on('message', message => {
             message.delete({timeout: 500});  
         }   
     }            
-);
+);*/
 
   bot.login(cfg.token)
