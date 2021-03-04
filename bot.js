@@ -31,7 +31,6 @@ bot.on('message', (message) => {
         const randomValue = values[parseInt(Math.random() * values.length)];
             message.channel.send(`${message.member}`);
             if (message.author.id === '134687378521456641') {
-                console.log(message.reference)
                 const embed = new MessageEmbed()
                 .setTitle(`Criador, que alegria você por aqui`)
                 .setColor([45,25,52])
