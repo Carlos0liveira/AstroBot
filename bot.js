@@ -33,7 +33,8 @@ bot.on('message', (message) => {
                 .setTitle(`Criador, que alegria você por aqui`)
                 .setColor([45,25,52])
                 .setImage(randomValue)
-                message.channel.send(embed); 
+                message.channel.send(embed);
+                message.delete({timeout: 500});   
             }
             if (message.author.id != '134687378521456641') {
                 const embed = new MessageEmbed()
@@ -42,6 +43,7 @@ bot.on('message', (message) => {
                 .setColor([45,25,52])
                 .setImage(randomValue)
                 message.channel.send(embed);
+                message.delete({timeout: 500});  
             }  
     };
     //dispara as funções

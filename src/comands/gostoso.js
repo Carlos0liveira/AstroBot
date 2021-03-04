@@ -8,6 +8,6 @@ module.exports = function gostoso(message) {
 }
 module.exports = function gostoso(message) {
     if (message.content.indexOf('gostosa') != -1) {
-        message.react('<:su_panda1:697163015866286269>');
+        message.react('✋');
     }   
 }  
