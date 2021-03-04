@@ -1,6 +1,10 @@
 const {  MessageEmbed, Message } = require('discord.js'); 
 
 module.exports = function msgSend(message) {
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;  
+    if (message.content.includes("@here") || message.content.includes("@everyone")) return false;  
+
     if (message.content === '!oi') {
         const embed = new MessageEmbed()
             .setTitle('Olá! Me chamo Astro')

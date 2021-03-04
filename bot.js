@@ -31,17 +31,18 @@ bot.on('message', (message) => {
         const randomValue = values[parseInt(Math.random() * values.length)];
             message.channel.send(`${message.member}`);
             if (message.author.id === '134687378521456641') {
+                console.log(message.author.username);
                 const embed = new MessageEmbed()
-                .setTitle(`Criador, que alegria você por aqui`)
+                .setTitle(`Criador, que alegria você por aqui  <:su_love4:695377304045617162>`)
                 .setColor([45,25,52])
                 .setImage(randomValue)
                 message.channel.send(embed);
                 message.delete({timeout: 500});   
             }
+
             if (message.author.id != '134687378521456641') {
                 const embed = new MessageEmbed()
-                .setTitle(`Oii`)
-                .setDescription(`Se estiver precisando de ajuda basta utilizar '!ajuda'`)
+                .setTitle(`Oii `+ message.author.username + '  <:su_pikauwu:684780783264595980> ')
                 .setColor([45,25,52])
                 .setImage(randomValue)
                 message.channel.send(embed);
