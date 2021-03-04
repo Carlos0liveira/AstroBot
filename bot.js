@@ -5,6 +5,7 @@ const imagens = require("./images.json");
 const saudacao = require('./src/comands/saudacao');
 const ajuda = require('./src/comands/ajuda')
 const joinServer = require('./src/joinServer')
+const gostoso = require('./src/comands/gostoso')
 
     //conexão do banco
 const sqlite3 = require('sqlite3').verbose();
@@ -29,7 +30,7 @@ bot.on('message', (message) => {
             message.channel.send(`${message.member}`);
             if (message.author.id === '134687378521456641') {
                 const embed = new MessageEmbed()
-                .setTitle(`Criador que alegria você por aqui`)
+                .setTitle(`Criador, que alegria você por aqui`)
                 .setColor([45,25,52])
                 .setImage(randomValue)
                 message.channel.send(embed); 
@@ -46,6 +47,7 @@ bot.on('message', (message) => {
     //dispara as funções
     saudacao(message);
     ajuda(message);
+    gostoso(message);
 });
  // monitora quando alguem entra no servidor
 bot.on("guildMemberAdd", async member => {
