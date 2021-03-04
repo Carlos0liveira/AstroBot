@@ -23,12 +23,15 @@ bot.on('message', (message) => {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;  
     if (message.content.includes("@here") || message.content.includes("@everyone")) return false;  
+    if (message.reference != null) return false;
+    
         //Caso o bot seja mencionado ele irá responder
     if (message.mentions.has(bot.user.id)) {
         const values = Object.values(imagens);
         const randomValue = values[parseInt(Math.random() * values.length)];
             message.channel.send(`${message.member}`);
             if (message.author.id === '134687378521456641') {
+                console.log(message.reference)
                 const embed = new MessageEmbed()
                 .setTitle(`Criador, que alegria você por aqui`)
                 .setColor([45,25,52])
