@@ -16,6 +16,7 @@
   "author": "Prodd",
   "license": "ISC",
   "dependencies": {
+    "discord-anti-spam": "^2.5.0",
     "discord.js": "^12.5.1",
     "sqlite3": "^5.0.2"
   }

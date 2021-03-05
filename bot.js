@@ -3,9 +3,10 @@ const bot = new Client();
 const cfg = require("./src/jsons/config.json");
 const imagens = require("./src/jsons/images.json");
 const saudacao = require('./src/comands/saudacao');
-const ajuda = require('./src/comands/ajuda')
-const joinServer = require('./src/joinServer')
-const gostoso = require('./src/comands/gostoso')
+const ajuda = require('./src/comands/ajuda');
+const joinServer = require('./src/joinServer');
+const gostoso = require('./src/comands/gostoso');
+const AntiSpam = require('discord-anti-spam');
 
     //conexão do banco
 const sqlite3 = require('sqlite3').verbose();
@@ -53,9 +54,29 @@ bot.on('message', (message) => {
     ajuda(message);
     gostoso(message);
 });
+
  // monitora quando alguem entra no servidor
 bot.on("guildMemberAdd", async member => {
     joinServer(member);
 })
+
+
+//Verifica e da Mute nos Otário
+const antiSpam = new AntiSpam({
+	warnThreshold: 3, // Quantidade de mensagens para aviso
+	muteThreshold: 4, // Qauntidade de mensagens para mute
+	maxInterval: 1000, // Quantidade intervalo para msg
+	warnMessage: `{@user}, Por favor pare de Spammar <:su_gatowut:695367305097642044>`, 
+	muteMessage: '**{user_tag}** Foi mutado por ser Inconveniente',
+	maxDuplicatesWarning: 7, // Quantidade de mensagens duplicadas para disparar aviso
+	ignoreBots: true, 
+	verbose: true, 
+	ignoredUsers: [], 
+    muteRoleName: "Silenciado", 
+	removeMessages: true ,
+    ignoredChannels: 'cartíneas'
+});
+
+bot.on('message', (message) => antiSpam.message(message)); 
 
 bot.login(cfg.token)
