@@ -1,4 +1,5 @@
 const {  MessageEmbed, Message } = require('discord.js'); 
+const bomDia = require('../jsons/bomDia.json')
 
 module.exports = function msgSend(message) {
     if (message.author.bot) return;
@@ -15,6 +16,12 @@ module.exports = function msgSend(message) {
             message.channel.send(embed);
             message.delete({timeout: 500});  
     } 
+
+    if (message.content.toUpperCase().includes('BOM DIA ASTRO')){
+        const values = Object.values(bomDia);
+        const randomValue = values[parseInt(Math.random() * values.length)];
+        message.channel.send(randomValue);
+    }
 }            
 
   
