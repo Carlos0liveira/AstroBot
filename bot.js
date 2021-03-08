@@ -7,11 +7,12 @@ const ajuda = require('./src/comands/ajuda');
 const joinServer = require('./src/joinServer');
 const gostoso = require('./src/comands/gostoso');
 const AntiSpam = require('discord-anti-spam');
+const banco = require('./src/banco');
 
     //conexão do banco
 const sqlite3 = require('sqlite3').verbose();
 let db = new sqlite3.Database('./AstroDB.db');
-    
+
     //quando o bot é startado
 bot.on('ready', () => {
     console.log(`Bot Online e operante`)
@@ -39,7 +40,6 @@ bot.on('message', (message) => {
                 message.channel.send(embed);
                 message.delete({timeout: 500});   
             }
-
             if (message.author.id != '134687378521456641') {
                 const embed = new MessageEmbed()
                 .setTitle(`Oii `+ message.author.username + '  <:su_pikauwu:684780783264595980> ')
@@ -53,11 +53,18 @@ bot.on('message', (message) => {
     saudacao(message);
     ajuda(message);
     gostoso(message);
+    banco(message);
 });
 
  // monitora quando alguem entra no servidor
 bot.on("guildMemberAdd", async member => {
     joinServer(member);
+})
+
+//Monitora a saida do servidor
+bot.on('guildMemberRemove', async member => {
+    const canal = member.guild.channels.cache.find(c => c.id === cfg.canalEntrada);
+    canal.send(`<@${member.user.id}> Saiu do servidor, até mais!`); //mention user in channel
 })
 
 

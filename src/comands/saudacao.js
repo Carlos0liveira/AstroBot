@@ -1,13 +1,15 @@
 const {  MessageEmbed, Message } = require('discord.js'); 
 const bomDia = require('../jsons/bomDia.json');
 const neAstro = require('../jsons/neAstro.json');
+const blacklist = require('../jsons/blacklist.json');
+const blackResp = require('../jsons/blackResp.json')
 
 module.exports = function msgSend(message) {
     if (message.author.bot) return;
     if (message.channel.type === "dm") return;  
     if (message.content.includes("@here") || message.content.includes("@everyone")) return false;  
 
-    if (message.content === '!oi') {
+    if (message.content.toUpperCase() === '!OI') {
         const embed = new MessageEmbed()
             .setTitle('Olá! Me chamo Astro')
             .setColor([45,25,52])
@@ -29,6 +31,22 @@ module.exports = function msgSend(message) {
         const randomValue = values[parseInt(Math.random() * values.length)];
         message.channel.send(randomValue);
     }
+
+    if (message.content.toUpperCase() === '!PING'){
+        const embed = new MessageEmbed()
+            .setTitle('Pooooong!!!!')
+            .setImage('https://media.giphy.com/media/ECwTCTrHPVqKI/source.gif')
+        message.channel.send(embed);
+    }
+
+        /*for (let i = 0; i < blacklist.length; i++) {
+            console.log(blacklist[1])
+            if (message.content.toUpperCase().includes(blacklist[i])) {
+                const values = Object.values(blackResp);
+                const randomValue = values[parseInt(Math.random() * values.length)];
+                message.channel.send(randomValue);
+            }
+        }*/
 }            
 
   
