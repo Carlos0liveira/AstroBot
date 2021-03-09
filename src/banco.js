@@ -23,12 +23,9 @@ module.exports = function banco(message) {
         if (!row) {
           db.run(`INSERT INTO usuarios (user, coins, lastmsg) VALUES ('${message.author.id}', 1, '${message.createdAt}')`);  
         }else {
-            var teste = new Date(row.lastMsg)
-            console.log(message.channel.name + ' ' + message.author.username)
-            console.log( Math.round((Math.abs(message.createdAt.getTime() - teste.getTime())) / 60000) );
+            var dtAtual = new Date()
 
-
-            if ( (Math.round((Math.abs(message.createdAt.getTime() - teste.getTime())) / 60000)) > 2  ) {
+            if ( (Math.round((Math.abs(message.createdAt.getTime() - dtAtual.getTime())) / 60000)) > 2  ) {
                 let coins = row.coins + 1;
                 db.run(`UPDATE usuarios SET coins = ${coins}, lastmsg = '${message.createdAt}' WHERE user = ${message.author.id} `)
             }
