@@ -39,6 +39,10 @@ module.exports = function msgSend(message) {
         message.channel.send(embed);
     }
 
+    if (message.content === message.content.toUpperCase() && message.content.length > 8) {
+        message.channel.send(` ${message.member} Pala de glita <:su_panda2:697163015891583076> `)
+    }
+
         /*for (let i = 0; i < blacklist.length; i++) {
             console.log(blacklist[1])
             if (message.content.toUpperCase().includes(blacklist[i])) {

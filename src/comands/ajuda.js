@@ -13,7 +13,9 @@ module.exports = function msgSend(message) {
             .setColor([45,25,52])
             .setImage('https://media.giphy.com/media/jUWNrvwR4ezUwJc2Gq/giphy.gif')
             .addFields(
-                { name:'oi' , value:'  Conheça mais sobre mim :)', inline: true }
+                { name:'oi' , value:' Conheça mais sobre mim :)', inline: true },
+                { name: 'ping', value: 'Teste se estou acordado', inline: true},
+                { name: 'carteira', value: 'Veja quantos coins você tem guardado', inline: true}
             )
         message.channel.send(embed);
         message.delete({timeout: 500})
