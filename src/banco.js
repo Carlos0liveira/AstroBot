@@ -10,7 +10,9 @@ module.exports = function banco(message) {
 
     let sql = 'SELECT * FROM usuarios WHERE user=?';
     let user = message.author.id;
-    //console.log( Math.round((Math.abs(message.createdAt.getTime() - date.getTime())) / 60000) );
+    //console.log(message.channel.);
+    console.log(message.author.username)
+    console.log( Math.round((Math.abs(message.createdAt.getTime() - date.getTime())) / 60000) );
     //console.log(date);
     //console.log(message.createdAt)
 
